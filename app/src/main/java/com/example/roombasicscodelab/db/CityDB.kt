@@ -10,7 +10,7 @@ import com.example.roombasicscodelab.entities.City
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = arrayOf(City::class), version = 4, exportSchema = false)
+@Database(entities = arrayOf(City::class), version = 1, exportSchema = false)
 public abstract class CityDB : RoomDatabase(){
     abstract fun cityDao(): CityDao
 
@@ -28,10 +28,10 @@ public abstract class CityDB : RoomDatabase(){
                     cityDao.deleteAll()
 
                     //add Sample words.
-                    var city = City(1,"Viana do Castelo","Portugal")
-                    cityDao.insert(city)
-                    city = City(2,"Porto","Portugal")
-                    cityDao.insert(city)
+                     var city = City(1,"Viana do Castelo","Portugal","teste1")
+                     cityDao.insert(city)
+                    city = City(2,"Porto","Portugal","Teste2")
+                     cityDao.insert(city)
                 }
             }
         }
@@ -51,6 +51,7 @@ public abstract class CityDB : RoomDatabase(){
                     CityDB::class.java,
                     "cities_database",
                 )
+                    .fallbackToDestructiveMigration()
                     .addCallback(WordDatabaseCallback(scope))
                     .build()
 

@@ -18,6 +18,8 @@ class CityAdapter internal constructor(
 
     class CityViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val cityItemView: TextView = itemView.findViewById(R.id.textView)
+        val capitalItemView: TextView = itemView.findViewById(R.id.textView2)
+        val testeItemView : TextView = itemView.findViewById(R.id.textView3)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CityViewHolder {
@@ -28,6 +30,8 @@ class CityAdapter internal constructor(
     override fun onBindViewHolder(holder: CityViewHolder, position: Int) {
         val current = cities[position]
         holder.cityItemView.text = current.city
+        holder.capitalItemView.text = current.capital
+        holder.testeItemView.text = current.teste
     }
 
     internal fun setCities(cities: List<City>){

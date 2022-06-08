@@ -8,5 +8,6 @@ import androidx.room.PrimaryKey
 class City(
     @PrimaryKey(autoGenerate = true) val id: Int ?= null,
     @ColumnInfo(name = "city") val city: String,
-    @ColumnInfo(name = "country") val capital: String
+    @ColumnInfo(name = "capital") val capital: String,
+    @ColumnInfo(name = "teste") val teste: String
 )
